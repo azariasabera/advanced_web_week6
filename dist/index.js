@@ -38,6 +38,18 @@ app.post('/vehicle/add', (req, res) => {
     }
     ;
 });
+app.get('/vehicle/search/:model', (req, res) => {
+    const model = req.params.model;
+    let vehicle = vehicles.find(vehicle => vehicle.model === model);
+    if (vehicle) {
+        res.json(vehicle);
+    }
+    else {
+        let message;
+        message = { text: `Model ${model} not found!` };
+        res.json(message);
+    }
+});
 app.listen(port, () => {
     console.log(`Server listening to http://localhost:${port}`);
 });
