@@ -23,8 +23,13 @@ app.post('/vehicle/add', (req, res) => {
             model: req.body.model,
             color: req.body.color,
             year: req.body.year,
-            power: req.body.power
+            power: req.body.power,
+            bodyType: req.body.bodyType,
+            wheelCount: req.body.wheelCount,
+            draft: req.body.draft,
+            wingspan: req.body.wingspan
         };
+        console.log(newVehicle);
         vehicles.push(newVehicle);
         res.status(201).send("Vehicle added");
     }
